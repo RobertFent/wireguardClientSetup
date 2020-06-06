@@ -1,0 +1,10 @@
+FROM arm32v7/alpine
+
+RUN apk update && apk update && apk add iptables wireguard-tools
+
+COPY docker-entrypoint.sh /entrypoint.sh
+COPY client-wg0.conf /etc/wireguard/wg0.conf
+
+EXPOSE 51820/udp
+
+ENTRYPOINT ["/entrypoint.sh"]
