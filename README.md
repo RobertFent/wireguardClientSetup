@@ -34,6 +34,19 @@ docker build -t robertfent1/wireguard-rpi-client --file ./DockerFile .
 5. Run ```up``` in the folder where docker-compose.yml is
 
 ## how to test
+1. Ip addresses
+```
+ip a show wg0
+```
+should print:
+```
+wg0: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1420 qdisc noqueue state UNKNOWN group default qlen 1000
+link/none
+inet 10.0.0.2/24 scope global wg0
+   valid_lft forever preferred_lft forever
+```
+
+2. Ping server
 ```
 ping 10.0.0.1
 ```
